@@ -1,5 +1,5 @@
 import jsPDF from "jspdf";
-import logo from "../public/logo.jpg";
+import logo from "/logo.jpg";
 
 const MyJsPdf = () => {
   const generatePdf = () => {
@@ -133,6 +133,54 @@ const MyJsPdf = () => {
     doc.text("GST No: ", 10, yforText + 56);
     doc.text("XXXXXXXXXXXXX", 24, yforText + 56);
 
+    // SHIPPED TO INNER FIELDS
+
+    doc.text("Name: ", pageMiddle + 10, yforText + 15);
+    var splitTitle = doc.splitTextToSize(
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, itaque!",
+      pageMiddle / 2 + 20
+    );
+    doc.text(splitTitle, pageMiddle + 24, yforText + 15);
+
+    doc.text("Cust Id: ", pageMiddle + 10, yforText + 25);
+    doc.text("1684684687", pageMiddle + 24, yforText + 25);
+
+    doc.text("Address: ", pageMiddle + 10, yforText + 30);
+    var splitTitle = doc.splitTextToSize(
+      "U/C SHRI JAGANNATH PRASAD GANESHI LAL BAZAZ CHARITABLE TRUST SAMITI  17 KM STONE, MATHURA DELHI HIGHWAY PO-CHAUMUHAN, ATHURA - 281401",
+      pageMiddle / 2 + 20
+    );
+    doc.text(splitTitle, pageMiddle + 24, yforText + 30);
+
+    doc.text("Telephone: ", pageMiddle + 10, yforText + 51);
+    doc.text("9875548745", pageMiddle + 28, yforText + 51);
+
+    doc.text("GST No: ", pageMiddle + 10, yforText + 56);
+    doc.text("XXXXXXXXXXXXX", pageMiddle + 24, yforText + 56);
+
+    // UPDATE HORIZONTAL BORDER VALUE
+    yforHorizontalBorder += 60;
+
+    // BORDER ABOVE PAN NUMBER
+    doc.line(6, yforHorizontalBorder + 3, 204, yforHorizontalBorder + 3);
+
+    // Invoice Number and Date
+    doc.setFontSize(10).setFont("", "normal");
+    doc.text("Invoice No. ", 10, yforText + 70);
+    doc.text("V120412425/87", 10 + 20, yforText + 70);
+
+    // Sparation Line
+    doc.line(
+      pageMiddle,
+      yforHorizontalBorder,
+      pageMiddle,
+      yforHorizontalBorder + 70
+    );
+
+    // Date
+    doc.text("Date. ", pageMiddle + 10, yforText + 70);
+    doc.text("14/11/2024", pageMiddle + 20, yforText + 70);
+
     // SAVE DOCUMENT
     doc.save();
   };
@@ -145,8 +193,6 @@ const MyJsPdf = () => {
       >
         Download PDF
       </button>
-
-      <div>Hello world</div>
     </div>
   );
 };

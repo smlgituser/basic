@@ -145,6 +145,8 @@ const MyJsPdf = () => {
       >
         Download PDF
       </button>
+
+      <div>Hello world</div>
     </div>
   );
 };
